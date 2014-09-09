@@ -17,31 +17,27 @@
   <body>
 
       <header>
-        <h1>{{page.headline}}</h1>
+        <h1>{{ page.headline }}</h1>
+        <p>{{ page.subheadline }}</p>
       </header>
 
 	  
       <div id="banner">
         <span id="logo"></span>
-
-		{{page.subheadline}}
-		{% comment %}
-        <a href="https://github.com/kayfriedly/kayfriedly.com" class="button fork"><strong>View On GitHub</strong></a>
         <div class="downloads">
-          <span>Downloads:</span>
           <ul>
-            <li><a href="https://github.com/kayfriedly/kayfriedly.com/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/kayfriedly/kayfriedly.com/tarball/master" class="button">TAR</a></li>
+            {% for link in page.links %}
+            <li><a href="{{ link.href }}" class="button">{{ link.name }}</a></li>
+            {% endfor %}
           </ul>
         </div>
-		{% endcomment %}
       </div><!-- end banner -->
 
     <div class="wrapper">
       <nav>
         <ul></ul>
       </nav>
-      <section>
+      <section class="main">
 	  
 	  {{ content }}
 	  
